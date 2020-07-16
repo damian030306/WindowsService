@@ -21,10 +21,14 @@ namespace MonitoringConsoleApp
         }
         private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            //
+            int cpuValue = GetCpuValue();
+            int memvalue = GetMemValue();
+            DateTime dt = DateTime.Now;
+            DataSet1TableAdapters.DataTableAdapter adapter = new DataSet1TableAdapters.DataTableAdapter();
+            adapter.InsertNewRecord(cpuValue, memvalue, dt);
         }
         private static System.Timers.Timer _timer;
-        private int GetCpuValue()
+        private static int GetCpuValue()
         {
             var CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             CpuCounter.NextValue();
@@ -32,7 +36,7 @@ namespace MonitoringConsoleApp
             int returValue = Convert.ToInt32(CpuCounter.NextValue());
             return returValue;
         }
-        private int GetMemValue()
+        private static int GetMemValue()
         {
             var MemCounter = new PerformanceCounter("Memory", "% Committed Bytes in Use");
             MemCounter.NextValue();
