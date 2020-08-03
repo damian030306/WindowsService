@@ -35,7 +35,8 @@ namespace MonitoringUI
             this.dataTableAdapter.Fill(this.dataSet1.Data);
             chart1.Series[0].XValueType = ChartValueType.DateTime;
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "dd.MM.yy" + System.Environment.NewLine + "hh:mm:ss";
-
+            chart2.Series[0].XValueType = ChartValueType.DateTime;
+            chart2.ChartAreas[0].AxisX.LabelStyle.Format = "dd.MM.yy" + System.Environment.NewLine + "hh:mm:ss";
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -47,6 +48,21 @@ namespace MonitoringUI
         {
             
         }
-        
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }
