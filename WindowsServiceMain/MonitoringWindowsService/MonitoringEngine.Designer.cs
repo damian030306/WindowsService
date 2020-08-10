@@ -1,6 +1,6 @@
 ﻿namespace MonitoringWindowsService
 {
-    partial class Service1
+    partial class MonitoringEngine
     {
         /// <summary> 
         /// Required designer variable.

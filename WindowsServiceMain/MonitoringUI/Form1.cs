@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,6 +32,22 @@ namespace MonitoringUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            ServiceController service = new ServiceController("MonitoringEngine");
+            ServiceStatusLabel.Text = service.Status.ToString();
+            if(ServiceStatusLabel.Text.ToLower() == "running")
+            {
+                ServiceButton.Text = "Stop";
+                ServiceButton.BackColor = System.Drawing.Color.Salmon;
+                ServiceStatusLabel.BackColor = System.Drawing.Color.YellowGreen;
+            }
+            else
+            {
+                ServiceButton.Text = "Start";
+                ServiceButton.BackColor = System.Drawing.Color.YellowGreen;
+                ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
+            }
+
+
             // TODO: This line of code loads data into the 'dataSet1.Data' table. You can move, or remove it, as needed.
             this.dataTableAdapter.Fill(this.dataSet1.Data);
             chart1.Series[0].XValueType = ChartValueType.DateTime;
@@ -63,6 +80,37 @@ namespace MonitoringUI
         {
             
 
+        }
+
+        private void ServiceButton_Click(object sender, EventArgs e)
+        {
+            ServiceController service = new ServiceController("MonitoringEngine");
+            if (ServiceStatusLabel.Text.ToLower() == "running")
+            {
+                service.Stop();
+                service.WaitForStatus(ServiceControllerStatus.Stopped);
+
+            }
+            else
+            {
+                service.Start();
+                service.WaitForStatus(ServiceControllerStatus.Running);
+            }
+            ServiceStatusLabel.Text = service.Status.ToString();
+            if (ServiceStatusLabel.Text.ToLower() == "running")
+            {
+                ServiceButton.Text = "Stop";
+                ServiceButton.BackColor = System.Drawing.Color.Salmon;
+                ServiceStatusLabel.BackColor = System.Drawing.Color.YellowGreen;
+
+            }
+            else
+            {
+                ServiceButton.Text = "Start";
+                ServiceButton.BackColor = System.Drawing.Color.YellowGreen;
+                ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
+
+            }
         }
     }
 }
