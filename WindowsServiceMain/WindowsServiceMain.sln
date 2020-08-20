@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitoringConsoleApp", "Mon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitoringUI", "MonitoringUI\MonitoringUI.csproj", "{63FB329B-0081-489D-8E6C-03F5A56270A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{EF273C52-9803-469B-B753-E1FA81814773}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonitoringWindowsService", "MonitoringWindowsService\MonitoringWindowsService.csproj", "{6628C676-7EE7-4F4E-9105-4C049D4DD974}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MonitoringData", "MonitoringData\MonitoringData.sqlproj", "{E10383B4-78EE-43BE-B5EB-C1DAD2CC9F8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger2", "Logger2\Logger2.csproj", "{138A3715-543E-4712-B1EB-BEC2828A406C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,6 @@ Global
 		{63FB329B-0081-489D-8E6C-03F5A56270A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63FB329B-0081-489D-8E6C-03F5A56270A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63FB329B-0081-489D-8E6C-03F5A56270A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF273C52-9803-469B-B753-E1FA81814773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF273C52-9803-469B-B753-E1FA81814773}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF273C52-9803-469B-B753-E1FA81814773}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF273C52-9803-469B-B753-E1FA81814773}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6628C676-7EE7-4F4E-9105-4C049D4DD974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6628C676-7EE7-4F4E-9105-4C049D4DD974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6628C676-7EE7-4F4E-9105-4C049D4DD974}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{E10383B4-78EE-43BE-B5EB-C1DAD2CC9F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E10383B4-78EE-43BE-B5EB-C1DAD2CC9F8A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E10383B4-78EE-43BE-B5EB-C1DAD2CC9F8A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{138A3715-543E-4712-B1EB-BEC2828A406C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138A3715-543E-4712-B1EB-BEC2828A406C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138A3715-543E-4712-B1EB-BEC2828A406C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138A3715-543E-4712-B1EB-BEC2828A406C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

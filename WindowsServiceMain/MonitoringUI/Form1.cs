@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -14,10 +16,13 @@ namespace MonitoringUI
 {
     public partial class Form1 : Form
     {
+        private NameValueCollection AllAppSettings = ConfigurationManager.AppSettings;
+        private string serviceName;
         public Form1()
         {
             InitializeComponent();
-            
+            serviceName = AllAppSettings["serviceName"];
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,10 +34,12 @@ namespace MonitoringUI
         {
 
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-            ServiceController service = new ServiceController("MonitoringEngine");
+            
+            
+            ServiceController service = new ServiceController(serviceName);
             ServiceStatusLabel.Text = service.Status.ToString();
             if(ServiceStatusLabel.Text.ToLower() == "running")
             {
@@ -84,7 +91,7 @@ namespace MonitoringUI
 
         private void ServiceButton_Click(object sender, EventArgs e)
         {
-            ServiceController service = new ServiceController("MonitoringEngine");
+            ServiceController service = new ServiceController(serviceName);
             if (ServiceStatusLabel.Text.ToLower() == "running")
             {
                 service.Stop();

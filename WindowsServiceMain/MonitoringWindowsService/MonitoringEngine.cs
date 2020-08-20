@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Logger2;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace MonitoringWindowsService
 {
@@ -17,45 +20,25 @@ namespace MonitoringWindowsService
             InitializeComponent();
 
         }
-        private static System.Timers.Timer _timer;
-
+      
+        //private static System.Timers.Timer _timer;
+        private Logger2.Logger2 logger2 = new Logger2.Logger2();
         protected override void OnStart(string[] args)
         {
-            _timer = new System.Timers.Timer();
-            _timer.Interval = 10000;
-            _timer.Elapsed += OnTimedEvent;
-            _timer.AutoReset = true;
-            _timer.Enabled = true;
-            Console.WriteLine("Monitor pracuje");
-            Console.ReadLine();
+            logger2.OnStartupService();
+            //_timer = new System.Timers.Timer();
+            //_timer.Interval = 10000;
+            //_timer.Elapsed += OnTimedEvent;
+            //_timer.AutoReset = true;
+            //_timer.Enabled = true;
+
+
         }
 
-        private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            int cpuValue = GetCpuValue();
-            int memvalue = GetMemValue();
-            DateTime dt = DateTime.Now;
-            DataSet1TableAdapters.DataTableAdapter adapter = new DataSet1TableAdapters.DataTableAdapter();
-            adapter.InsertNewRecord(cpuValue, memvalue, dt);
-        }
-        private static int GetCpuValue()
-        {
-            var CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            CpuCounter.NextValue();
-            System.Threading.Thread.Sleep(1000);
-            int returValue = Convert.ToInt32(CpuCounter.NextValue());
-            return returValue;
-        }
-        private static int GetMemValue()
-        {
-            var MemCounter = new PerformanceCounter("Memory", "% Committed Bytes in Use");
-            MemCounter.NextValue();
-            System.Threading.Thread.Sleep(1000);
-            int returValue = Convert.ToInt32(MemCounter.NextValue());
-            return returValue;
-        }
+        
         protected override void OnStop()
         {
+            logger2.OnStopService();
         }
     }
 }
