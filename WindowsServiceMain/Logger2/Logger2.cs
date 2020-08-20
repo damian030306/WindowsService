@@ -38,7 +38,8 @@ namespace Logger2
         }
         public void OnStopService()
         {
-            //eventLog.Dispose();
+            eventLog.WriteEntry("MonitoringWindowsService has stopped");
+            eventLog.Dispose();
         }
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
