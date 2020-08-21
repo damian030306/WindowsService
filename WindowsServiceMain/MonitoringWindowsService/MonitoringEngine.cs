@@ -21,17 +21,12 @@ namespace MonitoringWindowsService
 
         }
       
-        //private static System.Timers.Timer _timer;
+        
         private Logger2.Logger2 logger2 = new Logger2.Logger2();
         protected override void OnStart(string[] args)
         {
             logger2.OnStartupService();
-            //_timer = new System.Timers.Timer();
-            //_timer.Interval = 10000;
-            //_timer.Elapsed += OnTimedEvent;
-            //_timer.AutoReset = true;
-            //_timer.Enabled = true;
-
+           
 
         }
 

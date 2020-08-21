@@ -21,8 +21,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1CB97B58AA2558EC16BB8D3E984C0D2C"
+        "OwnerKey" = "8:_D23E3E7E9417400DB66BDD2BABC073DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7659D23C92296921567219CF54A5E452"
         "OwnerKey" = "8:_B54BF87FDCF0421BA916975D617C58DE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7659D23C92296921567219CF54A5E452"
+        "OwnerKey" = "8:_D23E3E7E9417400DB66BDD2BABC073DB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -33,8 +45,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7659D23C92296921567219CF54A5E452"
+        "MsmKey" = "8:_D23E3E7E9417400DB66BDD2BABC073DB"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -46,7 +58,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D23E3E7E9417400DB66BDD2BABC073DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1CB97B58AA2558EC16BB8D3E984C0D2C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7659D23C92296921567219CF54A5E452"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -67,6 +91,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -83,6 +123,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -259,7 +307,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Monitoring Engine Service"
         "ProductCode" = "8:{B9AEEC26-12A2-4BAC-A8F3-9E92304685DE}"
-        "PackageCode" = "8:{3725200A-329E-4E9A-B5EF-665626CDC4DC}"
+        "PackageCode" = "8:{350722F7-4B67-4AFA-91AC-1B70E4CE5CB0}"
         "UpgradeCode" = "8:{51FE4FEF-351D-4A34-A858-2BBE515BF797}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -379,6 +427,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F5BF22FF495F444694CC3CC3DA3FD84D"
+            {
+            "Name" = "8:Manage Service"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_D23E3E7E9417400DB66BDD2BABC073DB"
+            "Folder" = "8:_8068FA9C6EAE49808B226AEA25DB538E"
+            "WorkingFolder" = "8:_994F86948D5E4A3FB1FB175796B8C3EA"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -801,6 +863,34 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{6628C676-7EE7-4F4E-9105-4C049D4DD974}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D23E3E7E9417400DB66BDD2BABC073DB"
+            {
+            "SourcePath" = "8:..\\MonitoringUI\\obj\\Debug\\MonitoringUI.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_994F86948D5E4A3FB1FB175796B8C3EA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{63FB329B-0081-489D-8E6C-03F5A56270A1}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {

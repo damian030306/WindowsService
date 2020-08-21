@@ -52,7 +52,7 @@ namespace MonitoringUI
             {
                 Cpu.Invoke(new MethodInvoker(delegate
                 {
-                    Cpu.Text = cpuValue.ToString();
+                    Cpu.Text = cpuValue + "%";
                 }));
                 
             }
@@ -60,7 +60,7 @@ namespace MonitoringUI
             {
                 Mem.Invoke(new MethodInvoker(delegate
                 {
-                    Mem.Text =  memvalue.ToString();
+                    Mem.Text =  memvalue + "%";
                 }));
 
             }
@@ -189,6 +189,11 @@ namespace MonitoringUI
             dataGridView1.DataSource = w;
             dataGridView1.Update();
             dataGridView1.Refresh();
+        }
+
+        private void Cpu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
