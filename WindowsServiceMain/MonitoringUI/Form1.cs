@@ -128,10 +128,7 @@ namespace MonitoringUI
         private void chart2_Click(object sender, EventArgs e)
         {
 
-            var w = dataGridView1.DataSource;
-            dataGridView1.DataSource = w;
-            dataGridView1.Update();
-            dataGridView1.Refresh();
+            
         }
 
         private void ServiceButton_Click(object sender, EventArgs e)
@@ -184,6 +181,14 @@ namespace MonitoringUI
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var w = dataGridView1.DataSource;
+            dataGridView1.DataSource = w;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
         }
     }
 }

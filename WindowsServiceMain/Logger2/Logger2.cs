@@ -10,7 +10,7 @@ namespace Logger2
     public class Logger2
     {
         private static System.Timers.Timer _timer;
-        public string source, logName, machineName;
+        private string source, logName, machineName;
         private EventLog eventLog;
 
         public Logger2()
