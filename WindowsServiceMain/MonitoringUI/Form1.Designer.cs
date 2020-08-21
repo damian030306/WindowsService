@@ -47,17 +47,22 @@
             this.dataSet1 = new MonitoringUI.DataSet1();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpuValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.memValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTakenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Mem = new System.Windows.Forms.Label();
+            this.Cpu = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ServiceStatusLabel = new System.Windows.Forms.Label();
             this.ServiceButton = new System.Windows.Forms.Button();
             this.dataTableAdapter = new MonitoringUI.DataSet1TableAdapters.DataTableAdapter();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpuValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTakenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -116,6 +121,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(886, 479);
             this.panel2.TabIndex = 6;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label4
             // 
@@ -148,7 +154,7 @@
             legend5.BorderWidth = 5;
             legend5.Name = "Legend1";
             this.chart2.Legends.Add(legend5);
-            this.chart2.Location = new System.Drawing.Point(471, 250);
+            this.chart2.Location = new System.Drawing.Point(510, 245);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series5.BorderWidth = 6;
@@ -193,7 +199,7 @@
             legend6.BorderWidth = 5;
             legend6.Name = "Legend1";
             this.chart1.Legends.Add(legend6);
-            this.chart1.Location = new System.Drawing.Point(471, 61);
+            this.chart1.Location = new System.Drawing.Point(510, 45);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series6.BorderWidth = 3;
@@ -224,10 +230,134 @@
             this.memValueDataGridViewTextBoxColumn,
             this.dateTakenDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.dataBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 56);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(466, 383);
+            this.dataGridView1.Size = new System.Drawing.Size(479, 383);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Zapisane Dane w bazie danych";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.Mem);
+            this.panel1.Controls.Add(this.Cpu);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.ServiceStatusLabel);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.ServiceButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(886, 100);
+            this.panel1.TabIndex = 5;
+            // 
+            // Mem
+            // 
+            this.Mem.AutoSize = true;
+            this.Mem.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.Mem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Mem.Location = new System.Drawing.Point(559, 47);
+            this.Mem.Name = "Mem";
+            this.Mem.Size = new System.Drawing.Size(80, 20);
+            this.Mem.TabIndex = 4;
+            this.Mem.Text = "Loading...";
+            // 
+            // Cpu
+            // 
+            this.Cpu.AutoSize = true;
+            this.Cpu.BackColor = System.Drawing.Color.Orange;
+            this.Cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.Cpu.Location = new System.Drawing.Point(559, 12);
+            this.Cpu.Name = "Cpu";
+            this.Cpu.Size = new System.Drawing.Size(80, 20);
+            this.Cpu.TabIndex = 3;
+            this.Cpu.Text = "Loading...";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label1.Location = new System.Drawing.Point(5, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Service status:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // ServiceStatusLabel
+            // 
+            this.ServiceStatusLabel.AutoSize = true;
+            this.ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
+            this.ServiceStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
+            this.ServiceStatusLabel.Location = new System.Drawing.Point(100, 12);
+            this.ServiceStatusLabel.Name = "ServiceStatusLabel";
+            this.ServiceStatusLabel.Size = new System.Drawing.Size(77, 22);
+            this.ServiceStatusLabel.TabIndex = 1;
+            this.ServiceStatusLabel.Text = "Stopped";
+            this.ServiceStatusLabel.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // ServiceButton
+            // 
+            this.ServiceButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.ServiceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.ServiceButton.Location = new System.Drawing.Point(20, 47);
+            this.ServiceButton.Name = "ServiceButton";
+            this.ServiceButton.Size = new System.Drawing.Size(136, 32);
+            this.ServiceButton.TabIndex = 2;
+            this.ServiceButton.Text = "Start";
+            this.ServiceButton.UseVisualStyleBackColor = false;
+            this.ServiceButton.Click += new System.EventHandler(this.ServiceButton_Click);
+            // 
+            // dataTableAdapter
+            // 
+            this.dataTableAdapter.ClearBeforeFill = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Orange;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label5.Location = new System.Drawing.Point(429, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Cpu usage:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label6.Location = new System.Drawing.Point(429, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(124, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Memory usage:";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.YellowGreen;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.button1.Location = new System.Drawing.Point(189, 47);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 32);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Start";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.ServiceButton_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -253,67 +383,7 @@
             this.dateTakenDataGridViewTextBoxColumn.DataPropertyName = "DateTaken";
             this.dateTakenDataGridViewTextBoxColumn.HeaderText = "DateTaken";
             this.dateTakenDataGridViewTextBoxColumn.Name = "dateTakenDataGridViewTextBoxColumn";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Zapisane Dane w bazie danych";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.ServiceStatusLabel);
-            this.panel1.Controls.Add(this.ServiceButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(886, 100);
-            this.panel1.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label1.Location = new System.Drawing.Point(5, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Status usługi:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // ServiceStatusLabel
-            // 
-            this.ServiceStatusLabel.AutoSize = true;
-            this.ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
-            this.ServiceStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.ServiceStatusLabel.Location = new System.Drawing.Point(100, 12);
-            this.ServiceStatusLabel.Name = "ServiceStatusLabel";
-            this.ServiceStatusLabel.Size = new System.Drawing.Size(102, 22);
-            this.ServiceStatusLabel.TabIndex = 1;
-            this.ServiceStatusLabel.Text = "Zatrzymany";
-            this.ServiceStatusLabel.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // ServiceButton
-            // 
-            this.ServiceButton.BackColor = System.Drawing.Color.YellowGreen;
-            this.ServiceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.ServiceButton.Location = new System.Drawing.Point(20, 47);
-            this.ServiceButton.Name = "ServiceButton";
-            this.ServiceButton.Size = new System.Drawing.Size(136, 32);
-            this.ServiceButton.TabIndex = 2;
-            this.ServiceButton.Text = "Uruchom";
-            this.ServiceButton.UseVisualStyleBackColor = false;
-            this.ServiceButton.Click += new System.EventHandler(this.ServiceButton_Click);
-            // 
-            // dataTableAdapter
-            // 
-            this.dataTableAdapter.ClearBeforeFill = true;
+            this.dateTakenDataGridViewTextBoxColumn.Width = 115;
             // 
             // Form1
             // 
@@ -357,14 +427,19 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cpuValueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn memValueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTakenDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Mem;
+        private System.Windows.Forms.Label Cpu;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpuValueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn memValueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateTakenDataGridViewTextBoxColumn;
     }
 }
 

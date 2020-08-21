@@ -10,13 +10,12 @@ namespace Logger2
     public class Logger2
     {
         private static System.Timers.Timer _timer;
-        //private NameValueCollection AllAppSettings;
         public string source, logName, machineName;
         private EventLog eventLog;
 
         public Logger2()
         {
-            //AllAppSettings = ConfigurationManager.AppSettings;
+           
             source = "MonitoringSourceLog";
             logName = "MonitoringServiceLog";
             machineName = ".";
@@ -30,7 +29,7 @@ namespace Logger2
             }
             eventLog = new EventLog(logName, machineName, source);
             _timer = new System.Timers.Timer();
-            _timer.Interval = 60000;
+            _timer.Interval = 15000;
             _timer.Elapsed += OnTimedEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;
@@ -51,7 +50,8 @@ namespace Logger2
             eventLog.WriteEntry("MonitoringWindowsService saved data to database");
 
         }
-        private static int GetCpuValue()
+        
+        public int GetCpuValue()
         {
             var CpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
        
@@ -60,7 +60,7 @@ namespace Logger2
             int returValue = Convert.ToInt32(CpuCounter.NextValue());
             return returValue;
         }
-        private static int GetMemValue()
+        public int GetMemValue()
         {
             var MemCounter = new PerformanceCounter("Memory", "% Committed Bytes in Use");
             MemCounter.NextValue();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logger2;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -18,11 +19,52 @@ namespace MonitoringUI
     {
         private NameValueCollection AllAppSettings = ConfigurationManager.AppSettings;
         private string serviceName;
+        private static System.Timers.Timer _timer;
+        Logger2.Logger2 logger2;
         public Form1()
         {
+
             InitializeComponent();
             serviceName = AllAppSettings["serviceName"];
+            logger2 = new Logger2.Logger2();
+            
+            _timer = new System.Timers.Timer();
+            _timer.Interval = 1000;
+            _timer.Elapsed += OnTimedEvent;
+            _timer.AutoReset = true;
+            _timer.Enabled = true;
 
+
+        }
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            int cpuValue = logger2.GetCpuValue();
+            int memvalue = logger2.GetMemValue();
+            changeValueLabel(cpuValue, memvalue);
+           
+
+
+
+        }
+        private void changeValueLabel(int cpuValue, int memvalue)
+        {
+            if (Cpu.InvokeRequired)
+            {
+                Cpu.Invoke(new MethodInvoker(delegate
+                {
+                    Cpu.Text = cpuValue.ToString();
+                }));
+                
+            }
+            if (Mem.InvokeRequired)
+            {
+                Mem.Invoke(new MethodInvoker(delegate
+                {
+                    Mem.Text =  memvalue.ToString();
+                }));
+
+            }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -85,8 +127,11 @@ namespace MonitoringUI
 
         private void chart2_Click(object sender, EventArgs e)
         {
-            
 
+            var w = dataGridView1.DataSource;
+            dataGridView1.DataSource = w;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
         }
 
         private void ServiceButton_Click(object sender, EventArgs e)
@@ -118,6 +163,27 @@ namespace MonitoringUI
                 ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
 
             }
+            
+        }
+        
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
