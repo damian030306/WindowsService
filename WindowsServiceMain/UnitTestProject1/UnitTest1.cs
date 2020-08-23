@@ -14,7 +14,7 @@ namespace UnitTestProject1
             
         }
         [TestMethod]
-       // [Timeout(4000)]
+      
         public void CpuReturnTest()
         {
 
@@ -22,7 +22,7 @@ namespace UnitTestProject1
             Assert.IsTrue(100 >= logger.GetCpuValue(), "The CpuValue is greater than 100");
         }
         [TestMethod]
-       // [Timeout(4000)]
+      
         public void MemReturnTest()
         {
 

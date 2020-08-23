@@ -67,15 +67,7 @@ namespace MonitoringUI
             
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        
         
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -105,33 +97,24 @@ namespace MonitoringUI
             chart2.ChartAreas[0].AxisX.LabelStyle.Format = "dd.MM.yy" + System.Environment.NewLine + "hh:mm:ss";
         }
 
-        private void chart1_Click(object sender, EventArgs e)
+        
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Cpu_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void chart1_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
+        private void chart2_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart2_Click(object sender, EventArgs e)
-        {
-
-            
-        }
-
-        private void ServiceButton_Click(object sender, EventArgs e)
+        private void ServiceButton_Click_1(object sender, EventArgs e)
         {
             ServiceController service = new ServiceController(serviceName);
             if (ServiceStatusLabel.Text.ToLower() == "running")
@@ -160,40 +143,6 @@ namespace MonitoringUI
                 ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
 
             }
-            
-        }
-        
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            var w = dataGridView1.DataSource;
-            dataGridView1.DataSource = w;
-            dataGridView1.Update();
-            dataGridView1.Refresh();
-        }
-
-        private void Cpu_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
