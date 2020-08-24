@@ -33,6 +33,7 @@ namespace Logger2
             _timer.Elapsed += OnTimedEvent;
             _timer.AutoReset = true;
             _timer.Enabled = true;
+            _timer.Start();
             eventLog.WriteEntry("MonitoringWindowsService is working");
         }
         public void OnStopService()

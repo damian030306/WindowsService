@@ -130,6 +130,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -307,7 +315,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Monitoring Engine Service"
         "ProductCode" = "8:{B9AEEC26-12A2-4BAC-A8F3-9E92304685DE}"
-        "PackageCode" = "8:{350722F7-4B67-4AFA-91AC-1B70E4CE5CB0}"
+        "PackageCode" = "8:{4151FF3A-13A4-485C-95AA-5AF7413631DD}"
         "UpgradeCode" = "8:{51FE4FEF-351D-4A34-A858-2BBE515BF797}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -315,7 +323,7 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:MotoringCompany"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Monitoring Engine Service Setup"

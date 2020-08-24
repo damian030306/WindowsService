@@ -68,18 +68,19 @@ namespace MonitoringUI
         }
 
         
-        
-        private void Form1_Load(object sender, EventArgs e)
+        private void changeStatusLabel()
         {
-            
-            
-            ServiceController service = new ServiceController(serviceName);
-            ServiceStatusLabel.Text = service.Status.ToString();
-            if(ServiceStatusLabel.Text.ToLower() == "running")
+            if (ServiceStatusLabel.Text.ToLower() == "running")
             {
                 ServiceButton.Text = "Stop";
                 ServiceButton.BackColor = System.Drawing.Color.Salmon;
                 ServiceStatusLabel.BackColor = System.Drawing.Color.YellowGreen;
+            }
+            else if (ServiceStatusLabel.Text == "Service MonitoringEngine was not found on computer '.'.")
+            {
+                ServiceStatusLabel.Text = "Not Found";
+                ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
+
             }
             else
             {
@@ -87,6 +88,25 @@ namespace MonitoringUI
                 ServiceButton.BackColor = System.Drawing.Color.YellowGreen;
                 ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
             }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
+            ServiceController service;
+            try
+            {
+                
+                service = new ServiceController(serviceName);
+                ServiceStatusLabel.Text = service.Status.ToString();
+
+            }
+            catch(InvalidOperationException e2)
+            {
+                ServiceStatusLabel.Text = e2.Message;
+            }
+            changeStatusLabel();
+            
 
 
             // TODO: This line of code loads data into the 'dataSet1.Data' table. You can move, or remove it, as needed.
@@ -116,33 +136,33 @@ namespace MonitoringUI
 
         private void ServiceButton_Click_1(object sender, EventArgs e)
         {
-            ServiceController service = new ServiceController(serviceName);
-            if (ServiceStatusLabel.Text.ToLower() == "running")
+            
+
+            ServiceController service;
+            try
             {
-                service.Stop();
-                service.WaitForStatus(ServiceControllerStatus.Stopped);
+
+               service = new ServiceController(serviceName);
+                if (ServiceStatusLabel.Text.ToLower() == "running")
+                {
+                    service.Stop();
+                    service.WaitForStatus(ServiceControllerStatus.Stopped);
+                    
+
+                }
+                else
+                {
+                    service.Start();
+                    service.WaitForStatus(ServiceControllerStatus.Running);
+                }
+                ServiceStatusLabel.Text = service.Status.ToString();
 
             }
-            else
+            catch (InvalidOperationException e2)
             {
-                service.Start();
-                service.WaitForStatus(ServiceControllerStatus.Running);
+                ServiceStatusLabel.Text = e2.Message;
             }
-            ServiceStatusLabel.Text = service.Status.ToString();
-            if (ServiceStatusLabel.Text.ToLower() == "running")
-            {
-                ServiceButton.Text = "Stop";
-                ServiceButton.BackColor = System.Drawing.Color.Salmon;
-                ServiceStatusLabel.BackColor = System.Drawing.Color.YellowGreen;
-
-            }
-            else
-            {
-                ServiceButton.Text = "Start";
-                ServiceButton.BackColor = System.Drawing.Color.YellowGreen;
-                ServiceStatusLabel.BackColor = System.Drawing.Color.Salmon;
-
-            }
+            changeStatusLabel();
         }
     }
 }

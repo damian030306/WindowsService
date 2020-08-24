@@ -33,8 +33,9 @@
             // 
             // serviceProcessInstaller1
             // 
-            this.serviceProcessInstaller1.Password = null;
-            this.serviceProcessInstaller1.Username = null;
+           // this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
+            this.serviceProcessInstaller1.Password = "123";
+            this.serviceProcessInstaller1.Username = @"DESKTOP-CSKPON8\Jackie";
             // 
             // serviceInstaller1
             // 
