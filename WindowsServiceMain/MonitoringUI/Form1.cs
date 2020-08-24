@@ -164,5 +164,10 @@ namespace MonitoringUI
             }
             changeStatusLabel();
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
